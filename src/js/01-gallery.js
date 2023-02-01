@@ -14,11 +14,13 @@ function onConteinerClick(evt) {
     return;
   }
 
-  const instance = SimpleLightbox.create(`
-    <img src="${evt.target.dataset.source}">
-`);
+  new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
+    captionPosition: "bottom",
+    captionDelay: 250,
+  });
 
-  instance.show();
+  
 }
 
 function createGelaryCard(imgs) {
@@ -40,3 +42,4 @@ function createGelaryCard(imgs) {
 
   container.insertAdjacentHTML("beforeend", marcup);
 }
+
