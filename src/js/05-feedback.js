@@ -1,10 +1,13 @@
+import throttle from 'lodash.throttle'
+
+
 const formEl = document.querySelector('.feedback-form');
 console.log(formEl);
 const FEEDBACK_MESSAGE = 'feedback-form-state';
 
 let formData = {};
 
-formEl.addEventListener('input', onValueLocalStorage);
+formEl.addEventListener('input',  throttle(onValueLocalStorage, 1000));
 formEl.addEventListener('submit', onFornSubmit);
 
 massageOutput();
@@ -19,6 +22,7 @@ function onFornSubmit(e) {
   e.preventDefault();
   e.currentTarget.reset()
   localStorage.removeItem(FEEDBACK_MESSAGE)
+  console.log(formData);
 }
 
 function massageOutput() {
