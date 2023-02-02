@@ -12,6 +12,7 @@ formEl.addEventListener('submit', onFornSubmit);
 
 massageOutput();
 
+
 function onValueLocalStorage(e) {
   formData[e.target.name] = e.target.value;
 
